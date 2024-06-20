@@ -1,0 +1,238 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --header-height: 3.5rem;
+
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --white-color: hsl(0, 0%, 100%);
+    --black-color: hsl(0, 0%, 0%);
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: "Montserrat Alternates", sans-serif;
+    --biggest-font-size: 2rem;
+    --big-font-size: 1.5rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: 0.938rem;
+
+    /*========== Font weight ==========*/
+    --font-regular: 400;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+    :root {
+        --biggest-font-size: 4rem;
+        --big-font-size: 3rem;
+        --h3-font-size: 1.25rem;
+        --normal-font-size: 1rem;
+    }
+}
+
+/*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.main {
+    overflow: hidden;
+}
+
+/*=============== HEADER & NAV ===============*/
+nav.navbar {
+    font-family: "Montserrat Alternates" !important;
+}
+
+/*=============== HOME ===============*/
+.homeSwiper {
+    z-index: var(--z-tooltip);
+}
+.homeArticle {
+    position: relative;
+    padding-top: 13rem;
+    width: 100%;
+    height: 100vh;
+}
+.homeIMG,
+.homeShadow,
+.homeContent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.homeIMG {
+    object-fit: cover;
+    object-position: center;
+    z-index: -1;
+}
+.homeData {
+    padding-top: 5rem;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+#homeShadow.homeShadow {
+    background-color: hsla(0%, 0%, 0%, 0.05) !important;
+    z-index: -1;
+}
+.homeSubtitle {
+    font-size: var(--h3-font-size);
+    margin-bottom: 0.5rem;
+}
+.homeTitle {
+    font-size: var(--biggest-font-size);
+    font-weight: var(--font-bold);
+}
+.homeSocial {
+    position: absolute;
+    z-index: var(--z-tooltip);
+    left: 1.5rem;
+    bottom: 4rem;
+    display: grid;
+    row-gap: 1.5rem;
+}
+.homeSocialLink {
+    color: var(--white-color);
+    font-size: 1.5rem;
+}
+
+.wadah-preview {
+    max-width: 400px;
+    max-height: 300px;
+    overflow: hidden;
+}
+.wadah-preview:hover img.foto-detil-pegawai {
+    transform: scale(1.1);
+}
+.foto-detil-pegawai {
+    transition: 0.3s;
+}
+.button-kembali {
+    margin-top: 100px;
+}
+#myChart,
+#data-select {
+    max-width: 450px;
+    max-height: 400px;
+}
+
+/* Swiper class */
+.swiper {
+    height: 100vh;
+}
+.swiper-pagination {
+    width: initial;
+    height: max-content;
+    top: 6rem;
+    left: initial;
+    right: 4rem;
+    font-size: var(--big-font-size);
+    font-weight: var(--font-semi-bold);
+    display: flex;
+    column-gap: 0.25rem;
+    align-items: center;
+}
+.swiper-pagination-total {
+    font-size: var(--normal-font-size);
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    content: "";
+}
+.swiper-button-prev,
+.swiper-button-next {
+    font-size: 2rem;
+    color: var(--white-color);
+    width: initial;
+    height: initial;
+    position: initial;
+    outline: none;
+}
+.swiper-navigation {
+    position: absolute;
+    z-index: var(--z-tooltip);
+    height: max-content;
+    bottom: 4rem;
+    right: 1.5rem;
+    display: flex;
+    column-gap: 1.5rem;
+}
+
+/* For large devices */
+@media screen and (min-width: 1150px) {
+    .wadahHomeTitle {
+        /* background-color: aqua; */
+        max-width: 500px;
+    }
+    .homeData {
+        padding-top: 0;
+        text-align: initial;
+    }
+    .homeSubtitle {
+        margin-bottom: 1rem;
+    }
+    .homeContent {
+        max-width: 1120px;
+        margin-inline: auto;
+        right: 0;
+        left: 0;
+    }
+    .homeSocial {
+        left: 0;
+    }
+    .swiper-pagination {
+        top: 10rem;
+    }
+    .swiper-pagination-total {
+        font-size: 1.5rem;
+    }
+    .swiper-navigation {
+        right: 0;
+        column-gap: 2.5rem;
+    }
+    .swipper-button-prev,
+    .swipper-button-next {
+        font-size: 3rem;
+    }
+}
+
+/* For taller devices */
+@media screen and (min-width: 800px) and (min-height: 1000px) {
+    .homeData {
+        padding-top: 20rem;
+    }
+}
+
+/* For 2K resolutions (2048 x 1152) */
