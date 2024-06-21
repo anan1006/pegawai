@@ -147,7 +147,10 @@ nav.navbar {
     max-width: 450px;
     max-height: 400px;
 }
-
+.requiredField {
+    color: red;
+    font-size: 14px;
+}
 /* Swiper class */
 .swiper {
     height: 100vh;

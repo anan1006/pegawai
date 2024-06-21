@@ -27,55 +27,55 @@ class HomeController extends Controller
         return view('pages.dashboard');
     }
     public function getData(Request $request)
-{
-    $option = $request->query('option');
+    {
+        $option = $request->query('option');
 
-    // Inisialisasi data dan labels
-    $data = [];
-    $labels = [];
+        // Inisialisasi data dan labels
+        $data = [];
+        $labels = [];
 
-    // Pilih kolom berdasarkan pilihan dropdown
-    switch ($option) {
-        case 'status':
-            $results = DB::table('pegawais')
-                ->select('status', DB::raw('count(*) as count'))
-                ->groupBy('status')
-                ->get();
-            foreach ($results as $result) {
-                $labels[] = ucwords($result->status);
-                $data[] = $result->count;
-            }
-            break;
+        // Pilih kolom berdasarkan pilihan dropdown
+        switch ($option) {
+            case 'status':
+                $results = DB::table('pegawais')
+                    ->select('status', DB::raw('count(*) as count'))
+                    ->groupBy('status')
+                    ->get();
+                foreach ($results as $result) {
+                    $labels[] = ucwords($result->status);
+                    $data[] = $result->count;
+                }
+                break;
 
-        case 'jenis_kelamin':
-            $results = DB::table('pegawais')
-                ->select('jenis_kelamin', DB::raw('count(*) as count'))
-                ->groupBy('jenis_kelamin')
-                ->get();
-            foreach ($results as $result) {
-                $labels[] = ucwords($result->jenis_kelamin);
-                $data[] = $result->count;
-            }
-            break;
+            case 'jenis_kelamin':
+                $results = DB::table('pegawais')
+                    ->select('jenis_kelamin', DB::raw('count(*) as count'))
+                    ->groupBy('jenis_kelamin')
+                    ->get();
+                foreach ($results as $result) {
+                    $labels[] = ucwords($result->jenis_kelamin);
+                    $data[] = $result->count;
+                }
+                break;
 
-        case 'posisi':
-            $results = DB::table('pegawais')
-                ->select('posisi', DB::raw('count(*) as count'))
-                ->groupBy('posisi')
-                ->get();
-            foreach ($results as $result) {
-                $labels[] = ucwords($result->posisi);
-                $data[] = $result->count;
-            }
-            break;
+            case 'posisi':
+                $results = DB::table('pegawais')
+                    ->select('posisi', DB::raw('count(*) as count'))
+                    ->groupBy('posisi')
+                    ->get();
+                foreach ($results as $result) {
+                    $labels[] = ucwords($result->posisi);
+                    $data[] = $result->count;
+                }
+                break;
 
-        default:
-            break;
+            default:
+                break;
+        }
+
+        return response()->json([
+            'labels' => $labels,
+            'data' => $data
+        ]);
     }
-
-    return response()->json([
-        'labels' => $labels,
-        'data' => $data
-    ]);
-}
 }

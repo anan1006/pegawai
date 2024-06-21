@@ -52,10 +52,10 @@
                                         </div>
 
                                         <div class="pt-1 mb-4">
-                                            <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+                                            <button class="btn btn-dark btn-block" type="submit">Login</button>
                                         </div>
-                                        <p class="mb-5 pb-lg-2" style="color: #222;">Don't have an account? <a
-                                                href="/register" style="color: #222;"><strong>Register here</strong></a></p>
+                                        {{-- <p class="mb-5 pb-lg-2" style="color: #222;">Don't have an account? <a
+                                                href="/register" style="color: #222;"><strong>Register here</strong></a></p> --}}
                                     </form>
 
                                 </div>

@@ -21,8 +21,10 @@
                             <option value="posisi">Posisi</option>
                         </select>
                     </div>
+
                     <!-- Canvas untuk Chart.js -->
-                    <canvas id="myChart"></canvas>
+                    <canvas id="myChart" class="bg-warning-subtle p-3"></canvas>
+
                 </div>
             </div>
 
@@ -54,11 +56,16 @@
                     }]
                 },
                 options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
                         },
-                    },
+                        title: {
+                            display: true,
+                            text: 'Pie Chart'
+                        }
+                    }
                 }
             });
 
