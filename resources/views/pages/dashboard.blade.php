@@ -23,7 +23,7 @@
                     </div>
 
                     <!-- Canvas untuk Chart.js -->
-                    <canvas id="myChart" class="bg-warning-subtle p-3"></canvas>
+                    <canvas id="myChart" class="bg-body-tertiary p-3"></canvas>
 
                 </div>
             </div>
