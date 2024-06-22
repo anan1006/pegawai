@@ -31,12 +31,11 @@ class PegawaiDataTable extends DataTable
                 }else {
                     return "Tidak Tampil";
                 }
-
             })
-            ->addColumn('status', function(Pegawai $pegawai){
+            ->editColumn('status', function(Pegawai $pegawai){
                 return 'Pegawai '.$pegawai->status;
             })
-            ->addColumn('gaji', function(Pegawai $pegawai){
+            ->editColumn('gaji', function(Pegawai $pegawai){
                 return 'Rp. '. number_format($pegawai->gaji, 0 , "," , ".");
             })
             ->setRowId('id');
