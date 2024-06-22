@@ -156,4 +156,22 @@ class PegawaiController extends Controller
         }
 
     }
+
+    public function isActive(Pegawai $pegawai){
+        // dd($pegawai->isActive);
+        try {
+            if ($pegawai->isActive == 0) {
+                $pegawai->isActive = 1;
+            }else{
+                $pegawai->isActive = 0;
+            }
+            $pegawai->save();
+            return redirect()->route('pegawai.index')->with("success", "Status berhasil diubah.");
+        } catch (\Throwable $th) {
+            return redirect()->route('pegawai.index')->with("error", "Status gagal diubah.");
+
+        }
+
+
+    }
 }

@@ -25,6 +25,14 @@ class PegawaiDataTable extends DataTable
             ->addColumn('action', function(Pegawai $pegawai){
                 return view('pages.pegawai.action',compact("pegawai"));
             })
+            ->addColumn('isActive', function(Pegawai $pegawai){
+                if ($pegawai->isActive == 1) {
+                    return "Tampil";
+                }else {
+                    return "Tidak Tampil";
+                }
+
+            })
             ->addColumn('status', function(Pegawai $pegawai){
                 return 'Pegawai '.$pegawai->status;
             })
@@ -72,8 +80,8 @@ class PegawaiDataTable extends DataTable
         return [
             Column::make('nama_pegawai')
             ->addClass('text-capitalize text-center'),
-            Column::make('telepon')
-            ->addClass('text-center'),
+            // Column::make('telepon')
+            // ->addClass('text-center'),
             Column::make('posisi')
             ->addClass('text-capitalize text-center'),
             Column::make('status')
@@ -81,6 +89,9 @@ class PegawaiDataTable extends DataTable
             ->addClass('text-capitalize text-center'),
             Column::make('gaji')
             ->addClass('text-center'),
+            Column::computed('isActive')
+            ->addClass('text-center')
+            ->title("Tampil di Landing"),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)

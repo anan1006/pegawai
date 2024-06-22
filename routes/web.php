@@ -18,7 +18,7 @@ use App\Http\Controllers\PegawaiController;
 */
 
 Route::get('/', function () {
-    $pegawais = Pegawai::all();
+    $pegawais = Pegawai::where("isActive",1)->get();
     return view('landing', compact('pegawais'));
 });
 
@@ -28,4 +28,5 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('/pegawai',PegawaiController::class)->names('pegawai');
     Route::get('/get-data',[HomeController::class,'getData'])->name('getData');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/isActive/{pegawai}', [PegawaiController::class,"isActive"])->name("isActive");
 });

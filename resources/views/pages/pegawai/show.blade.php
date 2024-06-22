@@ -6,8 +6,29 @@
             <h4>Detail Data Pegawai</h4>
         </div>
         <div class="card-body">
-            <div class="mb-3 wadah-preview rounded">
+            <div class="mb-3 wadah-preview rounded" data-bs-toggle="modal"
+                data-bs-target="#exampleModal{{ $pegawai->id_pegawai }}">
                 <img src="{{ asset('storage/' . $pegawai->foto) }}" class="img-fluid  foto-detil-pegawai">
+            </div>
+            <!-- Button trigger modal -->
+            {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+            </button> --}}
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal{{ $pegawai->id_pegawai }}" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Foto {{ $pegawai->nama_pegawai }}</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{{ asset('storage/' . $pegawai->foto) }}" class="img-fluid  foto-detil-pegawai">
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama Pegawai</label>
